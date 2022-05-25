@@ -23,7 +23,7 @@ const UserSchema = new Schema({
  * 함수 내부에서 this에 접근해야 하기 때문인데, 
  * this가 문서 인스턴스를 가르키게 해야하기 때문입니다.
  */
- UserSchema.methods.setPassword = async function (password){
+UserSchema.methods.setPassword = async function (password){
   const hash = await bcrypt.hash(password, 10);
   this.userpw = hash;
 };
