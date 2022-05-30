@@ -13,7 +13,7 @@ import User from '../../models/user';
 export const register = async (context) => {
   const schema = Joi.object().keys({
     userid : Joi.string().min(10).max(30).trim().required(), // 최소 10, 최대 30글자가 필수로 요구
-    userpw : Joi.string().min(10).trim().required(),
+    userpw : Joi.string().min(10).max(15).trim().required(),
     nickname : Joi.string().required().min(3).max(12),
     gender : Joi.string().required(),
     tel : Joi.string().required()

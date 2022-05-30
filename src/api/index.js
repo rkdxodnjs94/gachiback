@@ -9,10 +9,14 @@
   import Router from 'koa-router';
   import user from './user';
   import revdata from './revdata';
+  import reserve from './reserve';
+  import party from './party';
   
   const api = new Router();
   
   api.use('/user', user.routes());
   api.use('/search', revdata.routes());
+  api.use('/reserve', reserve.routes());
+  api.use('/party', party.routes());
   
   export default api;

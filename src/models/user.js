@@ -8,7 +8,7 @@ const UserSchema = new Schema({
   userid : {type: String, required: true, unique: true, trim: true, lowercase:true,
   patern : /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i}, 
   userpw : {type: String, trim: true,
-  patern : /^[A-Za-z0-9]{10,15}$/},
+  patern : /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,15}$/},
   nickname : {type: String, required: true,
   patern : /^[A-Za-z가-힇0-9]{3,12}$/},
   gender : {type: String, required: true},
