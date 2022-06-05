@@ -17,14 +17,22 @@ import Reserve from '../../models/reserve';
 export const write = async (context) => {
   const {
     publisher,
+    publisherID,
     place,
-    arrage
+    arrage,
+    people,
+    date,
+    time
   } = context.request.body;
 
   const reserve = new Reserve({
     publisher,
+    publisherID,
     place,
-    arrage[0].publisherID 
+    arrage,
+    people,
+    date,
+    time
   });
   try {
     await reserve.save();

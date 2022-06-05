@@ -1,15 +1,19 @@
 import mongoose, { Schema } from "mongoose";
-const ArrageSchema = new Schema({
-  arrage : Number,
+// const ArrageSchema = new Schema({
+//   arrage : Number,
+//   publisherID : String,
+//   people : Number,
+//   date : String,
+//   time : String
+// });
+const ReserveSchema = new Schema({
+  publisher : String,
   publisherID : String,
+  place : String,
+  arrage : Number,
   people : Number,
   date : String,
   time : String
-});
-const ReserveSchema = new Schema({
-  publisher : String,
-  place : String,
-  arrage : [ArrageSchema]
 });
 
 // static 메서드
@@ -18,6 +22,7 @@ const ReserveSchema = new Schema({
 ReserveSchema.statics.findByUsername = function ( publisherID ) {
   return this.findOne({ publisherID });
 };
+
 
 const Reserve = mongoose.model('Reserve', ReserveSchema);
 export default Reserve;
