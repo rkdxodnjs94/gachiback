@@ -5,7 +5,8 @@ const reserve = new Router();
 
 reserve.get('/', reserveCtrl.list);
 reserve.post('/', reserveCtrl.write);
-reserve.get('/:id', reserveCtrl.read);
+// reserve.get('/:id', reserveCtrl.read);
+reserve.get('/place', reserveCtrl.placeread);
 reserve.delete('/:id', reserveCtrl.remove);
 reserve.patch('/:id', reserveCtrl.update);
 

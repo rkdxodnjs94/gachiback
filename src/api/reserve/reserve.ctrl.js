@@ -54,10 +54,23 @@ export const list = async (context) => {
 /** GET /api/reserve/:id 
  * :id에 들어가는 값은, mongoDB의 collection내 document 고유 id를 말합니다.
 해당되는 id가 없으면 404, id의 포맷이 아예다른경우 500 이란 http code가 나올겁니다**/
-export const read = async (context) => {
-  const { id } = context.params;
+// export const read = async (context) => {
+//   const { id } = context.params;
+//   try {
+//     const reserve = await Reserve.findById(id).exec();
+//     if (!reserve) {
+//       context.status = 404; // Not Found
+//       return;
+//     }
+//     context.body = reserve;
+//   } catch (e) {
+//     context.throw(500, e);
+//   }
+// };
+/** GET /api/reserve/place **/
+export const placeread = async (context) => {
   try {
-    const reserve = await Reserve.findById(id).exec();
+    const reserve = await Reserve.find({place : context.query.place}).select('place arrage').exec();
     if (!reserve) {
       context.status = 404; // Not Found
       return;
