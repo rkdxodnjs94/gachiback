@@ -4,14 +4,11 @@ import Reserve from '../../models/reserve';
 {
     "publisher" : "String",
     "place" : "String",
-    "arrage" : [
-      {
-        "arrage" : "Number",
-        "publisherID" : "String",
-        "people" : "Number",
-        "date" : "String",
-        "time" : "String"
-      }
+    "arrage" : "Number",
+    "publisherID" : "String",
+    "people" : "Number",
+    "date" : "String",
+    "time" : "String"
     ]
 } **/
 export const write = async (context) => {

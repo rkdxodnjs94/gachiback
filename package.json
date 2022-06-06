@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@joi/date": "^2.1.0",
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "esm": "^3.2.25",
@@ -18,8 +19,11 @@
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.1.1",
+    "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34",
     "mongodb": "^4.6.0",
-    "mongoose": "^6.3.3"
+    "mongoose": "^6.3.3",
+    "mongoose-auto-increment": "^5.0.1"
   },
   "devDependencies": {
     "eslint": "^8.15.0",

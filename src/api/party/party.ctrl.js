@@ -1,9 +1,9 @@
-import Joi from 'joi';
 import Party from '../../models/party';
+import moment from "moment-timezone";
+
 /**
  * POST http://localhost:4000/api/party
 {
-    id : Number,
     title : String,
     date : Date,
     content : String,
@@ -11,17 +11,14 @@ import Party from '../../models/party';
 } **/
 export const write = async (context) => {
   const {
-    id,
     title,
-    date,
     content,
     publisher
   } = context.request.body;
 
   const party = new Party({
-    id,
     title,
-    date,
+    date : moment.tz(new Date(),'Asia/Seoul').format(),
     content,
     publisher
   });
