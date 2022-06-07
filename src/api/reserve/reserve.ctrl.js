@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import Reserve from '../../models/reserve';
 /**
  * POST http://localhost:4000/api/reserve
@@ -6,7 +7,7 @@ import Reserve from '../../models/reserve';
     "place" : "String",
     "arrage" : "Number",
     "publisherID" : "String",
-    "people" : "Number",
+    "people" : "Number", // 모집인원수
     "date" : "String",
     "time" : "String"
     ]
@@ -18,7 +19,6 @@ export const write = async (context) => {
     place,
     arrage,
     people,
-    date,
     time
   } = context.request.body;
 
@@ -28,7 +28,7 @@ export const write = async (context) => {
     place,
     arrage,
     people,
-    date,
+    date : moment.tz(new Date(),'Asia/Seoul').format(),
     time
   });
   try {

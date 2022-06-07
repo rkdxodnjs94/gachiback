@@ -7,26 +7,32 @@ import moment from "moment-timezone";
     title : String,
     date : Date,
     content : String,
+    place : String,
     publisher : String,
     publisherID : String,
-    people : Number
+    people : Number, // 모집인원수
+    apply : Number // 참여인원수
 } **/
 export const write = async (context) => {
   const {
     title,
     content,
+    place,
     publisher,
     publisherID,
-    people
+    people,
+    apply
   } = context.request.body;
 
   const party = new Party({
     title,
     date : moment.tz(new Date(),'Asia/Seoul').format(),
     content,
+    place,
     publisher,
     publisherID,
-    people
+    people,
+    apply
   });
 
   try {

@@ -9,9 +9,11 @@ const PartySchema = new Schema({
   title : String,
   date : String,
   content : String,
+  place : String,
   publisher : String,
   publisherID : String,
-  people : Number
+  people : Number,
+  apply : { type : Number, default: 1 }
 });
 // 글번호 생성
 PartySchema.plugin(autoIncrement.plugin,{

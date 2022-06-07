@@ -8,9 +8,9 @@ import mongoose, { Schema } from "mongoose";
 // });
 const ReserveSchema = new Schema({
   publisher : String,
-  publisherID : String,
+  publisherID : {type : String, unique : true},
   place : String,
-  arrage : Number,
+  arrage : {type : Number, unique : true},
   people : Number,
   date : String,
   time : String
