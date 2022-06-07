@@ -5,7 +5,7 @@ const party = new Router();
 
 party.get('/', partyCtrl.list);
 party.post('/', partyCtrl.write);
-party.get('/:id', partyCtrl.read);
+party.get('/read', partyCtrl.read);
 party.delete('/:id', partyCtrl.remove);
 party.patch('/:id', partyCtrl.update);
 

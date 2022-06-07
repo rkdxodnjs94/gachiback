@@ -1,5 +1,5 @@
-import Party from '../../models/party';
 import moment from "moment-timezone";
+import Party from '../../models/party';
 
 /**
  * POST http://localhost:4001/api/party
@@ -44,7 +44,7 @@ export const write = async (context) => {
 export const list = async (context) => {
   try {
     // exec() 안해주면 서버에 쿼리요청 안 합니다. 종종 하는 실수.
-    const party = await Party.find().exec();
+    const party = await Party.find().sort({ _id : -1 }).exec();
     context.body = party;
   } catch (e) {
     context.throw(500, e);
@@ -53,10 +53,23 @@ export const list = async (context) => {
 /** GET /api/party/:id
  * :id에 들어가는 값은, mongoDB의 collection내 document 고유 id를 말합니다.
 해당되는 id가 없으면 404, id의 포맷이 아예다른경우 500 이란 http code가 나올겁니다**/
+// export const read = async (context) => {
+//   const { id } = context.params;
+//   try {
+//     const party = await Party.findById(id).exec();
+//     if (!party) {
+//       context.status = 404; // Not Found
+//       return;
+//     }
+//     context.body = party;
+//   } catch (e) {
+//     context.throw(500, e);
+//   }
+// };
+/** GET /api/party/read **/
 export const read = async (context) => {
-  const { id } = context.params;
   try {
-    const party = await Party.findById(id).exec();
+    const party = await Party.find({no : context.query.no}).exec();
     if (!party) {
       context.status = 404; // Not Found
       return;
