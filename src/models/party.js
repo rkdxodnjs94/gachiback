@@ -9,7 +9,6 @@ const PartySchema = new Schema({
   title : String,
   date : String,
   content : String,
-  place : String,
   publisher : String,
   publisherID : String,
   people : Number,

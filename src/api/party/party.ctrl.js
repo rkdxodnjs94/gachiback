@@ -17,7 +17,6 @@ export const write = async (context) => {
   const {
     title,
     content,
-    place,
     publisher,
     publisherID,
     people,
@@ -28,7 +27,6 @@ export const write = async (context) => {
     title,
     date : moment.tz(new Date(),'Asia/Seoul').format(),
     content,
-    place,
     publisher,
     publisherID,
     people,
