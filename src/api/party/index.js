@@ -7,6 +7,6 @@ party.get('/', partyCtrl.list);
 party.post('/', partyCtrl.write);
 party.get('/read', partyCtrl.read);
 party.delete('/:id', partyCtrl.remove);
-party.patch('/:id', partyCtrl.update);
+party.patch('/apply', partyCtrl.apply);
 
 export default party;

@@ -12,6 +12,7 @@ import Party from '../../models/party';
     publisherID : String,
     people : Number, // 모집인원수
     apply : Number // 참여인원수
+    applypeople : String // 참여자(아이디)
 } **/
 export const write = async (context) => {
   const {
@@ -20,7 +21,8 @@ export const write = async (context) => {
     publisher,
     publisherID,
     people,
-    apply
+    apply,
+    applypeople
   } = context.request.body;
 
   const party = new Party({
@@ -30,7 +32,8 @@ export const write = async (context) => {
     publisher,
     publisherID,
     people,
-    apply
+    apply,
+    applypeople
   });
 
   try {
@@ -40,7 +43,7 @@ export const write = async (context) => {
     context.throw(500, e);
   }
 };
-/** GET /api/party **/
+/** GET /api/party 전체리스트 **/
 export const list = async (context) => {
   try {
     // exec() 안해주면 서버에 쿼리요청 안 합니다. 종종 하는 실수.
@@ -66,7 +69,7 @@ export const list = async (context) => {
 //     context.throw(500, e);
 //   }
 // };
-/** GET /api/party/read **/
+/** GET /api/party/read 하나의 게시물 조회 **/
 export const read = async (context) => {
   try {
     const party = await Party.find({no : context.query.no}).exec();
@@ -104,8 +107,7 @@ export const remove = async (context) => {
   데이터를 업데이트할 때는 findByIdAndUpdate() 함수를 사용합니다. 
   이 함수를 사용할 때는 세 가지 파라미터를 넣어 주어야 합니다.  
 **/
-export const update = async (context) => {
-  const { id } = context.params;
+export const apply = async (context) => {
   try {
     /**
      * findByIdAndUpdate()의
@@ -114,18 +116,24 @@ export const update = async (context) => {
      * 3번째 파라미터는 업뎃 옵션
      * 입니다.
      */
-    const party = await Party.findByIdAndUpdate(id, context.request.body, {
+    const party = await Party.findOneAndUpdate({no : context.query.no},
+       {
+         apply : context.request.body.data.apply,
+         $push : { applypeople : context.request.body.data.applypeople}
+        }, 
+       {
       /**
        * 아래의 옵션이,
        * true면 업데이트 된 데이터의 모습이 반환되고
        * false면 업뎃 전 데이터를 보여줍니다.
        */
       new: true}).exec();
+      console.log(context.request.body.data);
       if (!party) {
         context.status = 404;
         return;
       }
-      context.body = reserve;
+      context.body = party;
   } catch (e) {
     context.throw(500 ,e);
   }

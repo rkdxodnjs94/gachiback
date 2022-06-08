@@ -12,7 +12,8 @@ const PartySchema = new Schema({
   publisher : String,
   publisherID : String,
   people : Number,
-  apply : { type : Number, default: 1 }
+  apply : { type : Number, default: 1 },
+  applypeople : Object
 });
 // 글번호 생성
 PartySchema.plugin(autoIncrement.plugin,{
