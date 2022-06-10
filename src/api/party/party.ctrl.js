@@ -128,7 +128,6 @@ export const apply = async (context) => {
        * false면 업뎃 전 데이터를 보여줍니다.
        */
       new: true}).exec();
-      console.log(context.request.body.data);
       if (!party) {
         context.status = 404;
         return;

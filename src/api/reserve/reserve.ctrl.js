@@ -67,8 +67,7 @@ export const list = async (context) => {
 /** GET /api/reserve/place **/
 export const placeread = async (context) => {
   try {
-    const reserve = await Reserve.find({place : context.query.place})
-    .select('place arrage').exec();
+    const reserve = await Reserve.find({place : context.query.place}).exec();
     if (!reserve) {
       context.status = 404; // Not Found
       return;
