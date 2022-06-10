@@ -21,14 +21,14 @@ export const write = async (context) => {
     people,
     time
   } = context.request.body;
-
+  
   const reserve = new Reserve({
     publisher,
     publisherID,
     place,
     arrage,
     people,
-    date : moment.tz(new Date(),'Asia/Seoul').format(),
+    date : moment.tz(context.request.body.date,'Asia/Seoul').format(),
     time
   });
   try {
