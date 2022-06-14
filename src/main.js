@@ -7,6 +7,8 @@ import bodyParser from 'koa-bodyparser';
 import mongoose from 'mongoose';
 import api from './api';
 import jwtMiddleware from './lib/jwtMiddleware';
+// social 로그인 passport 연동
+
 
 // 비구조화 할당을 통해 process.env 내부 값에 대한 래퍼런스 만들기
 const { PORT, MONGO_URI } = process.env;
