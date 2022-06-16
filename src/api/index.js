@@ -11,6 +11,8 @@
   import revdata from './revdata';
   import reserve from './reserve';
   import party from './party';
+  import notice from './notice';
+  import boardgame from './boardgame';
   
   const api = new Router();
   
@@ -18,5 +20,7 @@
   api.use('/search', revdata.routes());
   api.use('/reserve', reserve.routes());
   api.use('/party', party.routes());
+  api.use('/notice', notice.routes());
+  api.use('/boardgame', boardgame.routes());
   
   export default api;
