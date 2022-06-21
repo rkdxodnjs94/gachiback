@@ -13,6 +13,7 @@
   import party from './party';
   import notice from './notice';
   import boardgame from './boardgame';
+  import event from './event';
   
   const api = new Router();
   
@@ -22,5 +23,6 @@
   api.use('/party', party.routes());
   api.use('/notice', notice.routes());
   api.use('/boardgame', boardgame.routes());
+  api.use('/event', event.routes());
   
   export default api;

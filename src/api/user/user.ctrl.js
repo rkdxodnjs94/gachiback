@@ -103,6 +103,16 @@ export const login = async (context) => {
       context.throw(500, e);
   }
 };
+/** GET /api/user ID 중복확인용 **/
+export const list = async (context) => {
+  try {
+    // exec() 안해주면 서버에 쿼리요청 안 합니다. 종종 하는 실수.
+    const user = await User.find().exec();
+    context.body = user;
+  } catch (e) {
+    context.throw(500, e);
+  }
+};
 /*
   GET /api/user/check
 */
