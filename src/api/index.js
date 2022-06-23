@@ -14,6 +14,7 @@
   import notice from './notice';
   import boardgame from './boardgame';
   import event from './event';
+  import inquiry from './inquiry';
   
   const api = new Router();
   
@@ -24,5 +25,6 @@
   api.use('/notice', notice.routes());
   api.use('/boardgame', boardgame.routes());
   api.use('/event', event.routes());
+  api.use('/inquiry', inquiry.routes());
   
   export default api;
