@@ -1,5 +1,5 @@
 import moment from "moment-timezone";
-import Notice from '../../models/Notice';
+import Notice from '../../models/notice';
 
 /**
  * POST http://localhost:4001/api/notice

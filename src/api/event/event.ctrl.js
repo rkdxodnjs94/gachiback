@@ -1,14 +1,14 @@
 import Event from '../../models/event';
 import moment from 'moment-timezone';
 /**
- * POST http://localhost:4000/api/search
+ * POST http://localhost:4001/api/event
 {
   title : String,
   date : String,
   content : String,
   publisher : String,
   publisherID : String,
-  image : Buffer, 바이너리로 저장
+  image : String,
   views : String
 }**/
 export const write = async (context) => {
