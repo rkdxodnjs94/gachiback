@@ -15,6 +15,7 @@
   import boardgame from './boardgame';
   import event from './event';
   import inquiry from './inquiry';
+  import oauth from './oauth';
   
   const api = new Router();
   
@@ -26,5 +27,7 @@
   api.use('/boardgame', boardgame.routes());
   api.use('/event', event.routes());
   api.use('/inquiry', inquiry.routes());
+  api.use('/oauth', oauth.routes());
+
   
   export default api;

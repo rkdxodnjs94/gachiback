@@ -12,7 +12,7 @@ import Party from '../../models/party';
     publisherID : String,
     people : Number, // 모집인원수
     apply : Number // 참여인원수
-    applypeople : String // 참여자(아이디)
+    applypeople : Object // 참여자(아이디)
 } **/
 export const write = async (context) => {
   const {
